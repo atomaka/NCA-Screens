@@ -28,7 +28,7 @@ if(array_key_exists('image', $_FILES)) {
 		error('file extension error.');
 	}
 
-
+	// need to find the next available id and save the file.
 
 	if(move_uploaded_file($file['tmp_name'], UPLOADS . $file['name'])) {
 		echo json_encode(array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . UPLOADS . $file['name']));

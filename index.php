@@ -3,7 +3,7 @@
 	<head>
 		<title>No Chicks Allowed: Image Repository</title>
 		<meta charset="utf-8" />
-		<!-- <link rel="stylesheet" type="text/css" media="all" href="css/html5reset-1.6.1.css" /> -->
+		<link rel="stylesheet" type="text/css" media="all" href="css/html5reset-1.6.1.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
 
 		<!--[if lt IE 9]>
@@ -13,11 +13,11 @@
 
     <body>
 		<header>
-			<h1>NCA Screens</h1>
+			<h1>title or navigation or something</h1>
 		</header>
 		
 		<div id="dropbox">
-			<span class="message">Drop images here to upload. <br /></span>
+			<span class="message">Drop images here to upload.</span>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
