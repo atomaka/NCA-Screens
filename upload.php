@@ -11,11 +11,11 @@
 
 define('UPLOADS','uploads/');
 
-if(array_key_exists('file', $_FILES)) {
-	$file = $_FILES['file'];
+if(array_key_exists('image', $_FILES)) {
+	$file = $_FILES['image'];
 
 	move_uploaded_file($file['tmp_name'], UPLOADS . $file['name']);
 }
 
-
+echo json_encode(array('status'=>'Uploaded successfully'));
 ?>
