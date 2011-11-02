@@ -148,12 +148,18 @@ h1{
 	left:0;
 	height:100%;
 	width:100%;
-	background: url('../img/done.png') no-repeat center center rgba(255,255,255,0.5);
+	
 	display: none;
 }
 
 #dropbox .preview.done .uploaded{
 	display: block;
+	background: url('../img/success.png') no-repeat center center rgba(255,255,255,0.5);
+}
+
+#dropbox .preview.error .uploaded{
+	display: block;
+	background: url('../img/error.png') no-repeat center center rgba(255,255,255,0.5);
 }
 
 
@@ -199,7 +205,6 @@ h1{
 /*-------------------------
 	Link Box
 --------------------------*/
-
 
 
 

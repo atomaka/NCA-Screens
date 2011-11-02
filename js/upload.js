@@ -11,8 +11,16 @@ $(function(){
 		url: 'upload.php',
 		
 		uploadFinished:function(i,file,response){
-			$.data(file).addClass('done');
-			$.data(file).find('.linkBox').val(response.file);
+			if(response.type == 'error') {
+				alert('There was an error: ' + response.status);
+				$.data(file).addClass('error');
+				$.data(file).find('.linkBox').remove();
+
+				return false;
+			} else {
+				$.data(file).addClass('done');
+				$.data(file).find('.linkBox').val(response.file);	
+			}
 			// response is the JSON object that post_file.php returns
 		},
 		
