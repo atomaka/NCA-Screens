@@ -25,14 +25,14 @@
 				maxfiles: 		4,
 				maxfilesize: 	1,
 
-				uploadFinished:function(i, file, response, time) {
+				uploadFinished: function(i, file, response, time) {
 					
 				},
-				beforeEach: function(file) {
+				beforeEach: 	function(file) {
 					alert('temp attempting upload')	;
 				},
 
-				error: function(type, file) {
+				error: 			function(type, file) {
 					switch(type) {
 						case 'BrowserNotSupported':
 							alert('temp no html5 drag and drop');
