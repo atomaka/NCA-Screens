@@ -17,5 +17,5 @@ if(array_key_exists('image', $_FILES)) {
 	move_uploaded_file($file['tmp_name'], UPLOADS . $file['name']);
 }
 
-echo json_encode(array('status'=>'Uploaded successfully'));
+echo json_encode(array('status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . UPLOADS . $file['name']));
 ?>

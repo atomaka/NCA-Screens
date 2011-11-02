@@ -7,12 +7,12 @@ $(function(){
 		paramname:'image',
 		
 		maxfiles: 5,
-		queuefiles: 1,
     	maxfilesize: 10,
 		url: 'upload.php',
 		
 		uploadFinished:function(i,file,response){
 			$.data(file).addClass('done');
+			$.data(file).find('.linkBox').val(response.file);
 			// response is the JSON object that post_file.php returns
 		},
 		
@@ -61,13 +61,16 @@ $(function(){
 						'<div class="progressHolder">' +
 							'<div class="progress"></div>' +
 						'</div>' +
+						'<div class="linkHolder">' +
+							'<input type="text" class="linkBox" />' +
+						'</div>' +
 					'</div>'; 
 	
 	
 	function createImage(file){
 
 		var preview = $(template), 
-			image = $('img', preview);
+		image = $('img', preview);
 			
 		var reader = new FileReader();
 		
