@@ -7,7 +7,7 @@ $(function(){
 		paramname:'image',
 		
 		maxfiles: 5,
-    	maxfilesize: 10,
+    	maxfilesize: 2,
 		url: 'upload.php',
 		
 		uploadFinished:function(i,file,response){
