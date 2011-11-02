@@ -17,7 +17,7 @@
 		</header>
 		
 		<div id="dropbox">
-			<span class="message">Drop images here to upload. <br /><i>(they will only be visible to you)</i></span>
+			<span class="message">Drop images here to upload. <br /></span>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>

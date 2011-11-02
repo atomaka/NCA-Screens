@@ -7,7 +7,8 @@ $(function(){
 		paramname:'image',
 		
 		maxfiles: 5,
-    	maxfilesize: 2,
+		queuefiles: 1,
+    	maxfilesize: 10,
 		url: 'upload.php',
 		
 		uploadFinished:function(i,file,response){
@@ -52,14 +53,14 @@ $(function(){
     	 
 	});
 	
-	var template = '<div class="preview">'+
-						'<span class="imageHolder">'+
-							'<img />'+
-							'<span class="uploaded"></span>'+
-						'</span>'+
-						'<div class="progressHolder">'+
-							'<div class="progress"></div>'+
-						'</div>'+
+	var template = '<div class="preview">' +
+						'<span class="imageHolder">' +
+							'<img />' +
+							'<span class="uploaded"></span>' +
+						'</span>' +
+						'<div class="progressHolder">' +
+							'<div class="progress"></div>' +
+						'</div>' +
 					'</div>'; 
 	
 	
