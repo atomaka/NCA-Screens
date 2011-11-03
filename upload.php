@@ -19,7 +19,8 @@ if($_SERVER['REQUEST_METHOD'] != 'POST') {
 if(array_key_exists('image', $_FILES)) {
 	$file = $_FILES['image'];
 
-	$extension = explode('.',$file['name']);
+	$original = $file['name'];
+	$extension = explode('.',$original);
 	$extension = array_pop($extension);
 	$extension = strtolower($extension);
 
@@ -28,10 +29,14 @@ if(array_key_exists('image', $_FILES)) {
 		error('file extension error.');
 	}
 
-	// need to find the next available id and save the file.
+	$db = mysqli_init();
+	$db->real_connect($conf->hostname, $conf->username, $conf->password, $conf->database);
+	$query = "INSERT INTO screens (extension, original, created) VALUES('$extension','$original',NOW())";
+	$db->query($query);
+	$newId = $db->insert_id;
 
 	if(move_uploaded_file($file['tmp_name'], UPLOADS . $file['name'])) {
-		echo json_encode(array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . UPLOADS . $file['name']));
+		echo json_encode(array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . UPLOADS . $newId . $extension));
 		exit;
 	}
 }
