@@ -9,13 +9,7 @@
  * @version 1
  **/
 
-//for testing
-$conf = (object)array(
-	'hostname'		=> 'localhost',
-	'username'		=> 'root',
-	'password'		=> '',
-	'database'		=> 'screens',
-);
+$conf = json_decode(file_get_contents('database.conf'));
 
 define('UPLOADS','uploads/');
 $extensions = array('jpg','jpeg','png','gif','bmp');

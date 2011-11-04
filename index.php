@@ -1,11 +1,5 @@
 <?php
-//for testing
-$conf = (object)array(
-	'hostname'		=> 'localhost',
-	'username'		=> 'root',
-	'password'		=> '',
-	'database'		=> 'screens',
-);
+$conf = json_decode(file_get_contents('database.conf'));
 
 $id = isset($_GET['image']) ? $_GET['image'] : '';
 
