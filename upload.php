@@ -9,6 +9,14 @@
  * @version 1
  **/
 
+//for testing
+$conf = (object)array(
+	'hostname'		=> 'localhost',
+	'username'		=> 'root',
+	'password'		=> '',
+	'database'		=> 'screens',
+);
+
 define('UPLOADS','uploads/');
 $extensions = array('jpg','jpeg','png','gif','bmp');
 
@@ -31,12 +39,12 @@ if(array_key_exists('image', $_FILES)) {
 
 	$db = mysqli_init();
 	$db->real_connect($conf->hostname, $conf->username, $conf->password, $conf->database);
-	$query = "INSERT INTO screens (extension, original, created) VALUES('$extension','$original',NOW())";
+	$query = "INSERT INTO screens (extension, original) VALUES('$extension','$original')";
 	$db->query($query);
 	$newId = $db->insert_id;
 
-	if(move_uploaded_file($file['tmp_name'], UPLOADS . $file['name'])) {
-		echo json_encode(array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . UPLOADS . $newId . $extension));
+	if(move_uploaded_file($file['tmp_name'], UPLOADS . $newId . '.' . $extension)) {
+		echo json_encode(array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . UPLOADS . $newId . '.' . $extension));
 		exit;
 	}
 }
