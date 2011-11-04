@@ -29,6 +29,7 @@ if($id == '' ) {
 
 			$image = $result->fetch_object();
 			$content = '<img src="uploads/' . $id . '.' . $image->extension . '" />';
+			$content .= '<br/>Created on: ' . $image->created;
 		}
 	}
 }
