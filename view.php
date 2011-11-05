@@ -47,6 +47,13 @@ if($id == '' ) {
 		<header>
 			<h1>title or navigation or something</h1>
 		</header>
+
+		<div id="left">
+			<a href="/<?php echo ($id - 1); ?>" class="navigation"></a>
+		</div>
+		<div id="right">
+			<a href="/<?php echo ($id + 1); ?>" class="navigation"></a>
+		</div>
 <?if (isset($imageOutput)) { ?>
 		<div id="imageContainer">
 <?php echo $imageOutput; ?>
