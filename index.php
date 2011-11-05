@@ -3,8 +3,8 @@
 	<head>
 		<title>No Chicks Allowed: Image Repository</title>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" media="all" href="css/html5reset-1.6.1.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/html5reset-1.6.1.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
 
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

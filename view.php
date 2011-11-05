@@ -1,7 +1,7 @@
 <?php
 $conf = json_decode(file_get_contents('database.conf'));
 
-$id = isset($_GET['image']) ? $_GET['image'] : '';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
 
 if($id == '' ) {
 	// redirect to gallery; do with .htaccess?
@@ -22,10 +22,10 @@ if($id == '' ) {
 			// load tags
 
 			$image = $result->fetch_object();
-			$imageOutput = '<img src="uploads/' . $id . '.' . $image->extension . '" class="image" />';
+			$imageOutput = '<img src="/uploads/' . $id . '.' . $image->extension . '" class="image" />';
 			$message = 'Uploaded on: ' . $image->created;
 			$message .= '<br/>Original name: ' . $image->original;
-			$message .= '<br/>View Raw: <a href="uploads/' . $id . '.' . $image->extension . '">'. $id . '.' . $image->extension . '</a>';
+			$message .= '<br/>View Raw: <a href="/uploads/' . $id . '.' . $image->extension . '">'. $id . '.' . $image->extension . '</a>';
 		}
 	}
 }
@@ -35,8 +35,8 @@ if($id == '' ) {
 	<head>
 		<title>No Chicks Allowed: Image Repository</title>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" media="all" href="css/html5reset-1.6.1.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/html5reset-1.6.1.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
 
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
