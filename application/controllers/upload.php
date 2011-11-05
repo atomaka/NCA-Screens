@@ -22,7 +22,7 @@ class Upload extends CI_Controller {
 			$upload = $this->upload->data();
 
 			$this->load->model('fileupload');
-			$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['orig_name']);
+			$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['client_name']);
 
 			rename($upload['full_path'], $upload['file_path'] . $file_name . $upload['file_ext']);
 
