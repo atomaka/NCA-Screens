@@ -26,7 +26,7 @@ class Upload extends CI_Controller {
 
 			rename($upload['full_path'], $upload['file_path'] . $file_name . $upload['file_ext']);
 
-			$message = array('type'=>'success','status'=>'Uploaded successfully', 'file'=>'http://screens.p5dev.com/' . $file_name);
+			$message = array('type'=>'success','status'=>'Uploaded successfully', 'file'=>base_url('/view/specific/' . $file_name));
 		}
 
 		echo json_encode($message);
