@@ -2,6 +2,10 @@
 
 class View extends CI_Controller {
 	public function index() {
+		
+	}
+	
+	public function specific() {
 		$this->load->model('fileupload');
 
 		$id = $this->uri->segment($this->uri->total_segments());
@@ -13,8 +17,23 @@ class View extends CI_Controller {
 
 		$upload = $this->fileupload->get_upload($id);
 
-		$this->load->model('viewer');
+		$display_views = $upload->views;
 
-		print_r($upload);
+		$this->load->model('viewer');
+		if($this->viewer->add_viewer($_SERVER['REMOTE_ADDR'], $id)) {
+			$this->fileupload->add_view($id);
+			$display_views++;
+		}
+
+		$this->data['prev'] 		= $id - 1;
+		$this->data['next'] 		= ($id + 1 <= $total_uploads) ? $id + 1 : 0;
+
+		$this->data['image']		= $id . $upload->extension;
+
+		$this->data['original']		= $upload->original_name;
+		$this->data['views']		= $display_views;
+		$this->data['created']		= $upload->created;
+
+		$this->template->load('template', 'view', $this->data);
 	}
 }

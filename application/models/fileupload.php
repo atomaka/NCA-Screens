@@ -21,10 +21,16 @@ class Fileupload extends CI_Model {
 	}
 
 	function get_upload($id) {
-		$this->db->select('extension, views, created')->from('uploads')->where('id',$id);
+		$this->db->select('extension, original_name, views, created')->from('uploads')->where('id',$id);
 		$query = $this->db->get();
 
-		return $query->result();
+		$result = $query->result();
+
+		return $result[0];
+	}
+
+	function add_view($id) {
+		$this->db->query("UPDATE uploads SET views = views + 1 WHERE id = $id");
 	}
 }
 
