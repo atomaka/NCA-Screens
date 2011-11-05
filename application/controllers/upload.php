@@ -8,7 +8,9 @@ class Upload extends CI_Controller {
 	public function process() {
 		header('Content-Type: application/json',true);
 
-		$config['file_name'] 		= 135;
+		$temp_name = md5(rand());
+
+		$config['file_name'] 		= $temp_name;
 		$config['max_size']			= 2048;
 		$config['upload_path']		= './uploads/';
 		$config['allowed_types']	= 'gif|jpg|jpeg|png|bmp';
@@ -17,7 +19,14 @@ class Upload extends CI_Controller {
 		if (!$this->upload->do_upload('image')) {
 			$message = array('type' => 'error', 'status' => $this->upload->display_errors());
 		} else {
-			$message = array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . $config['file_name']);
+			$upload = $this->upload->data();
+
+			$this->load->model('fileupload');
+			$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['orig_name']);
+
+			rename($upload['full_path'], $upload['file_path'] . $file_name . $upload['file_ext']);
+
+			$message = array('type'=>'success','status'=>'Uploaded successfully', 'file'=>'http://screens.p5dev.com/' . $file_name);
 		}
 
 		echo json_encode($message);
