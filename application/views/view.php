@@ -10,5 +10,11 @@
 <?php } ?>
 
 		<div id="imageContainer">
-			<img src="<?php echo base_url('/uploads/' . $image); ?>" class="image" />
+			<a href="<?php base_url('/uploads/' . $image); ?>"><img src="<?php echo base_url('/uploads/' . $image); ?>" class="image" /></a>
+		</div>
+
+		<div id="message">
+			Uploaded on: <?php echo $created; ?><br/>
+			Original name: <?php echo $original; ?><br/>
+			Views: <?php echo $views; ?><br/>
 		</div>
