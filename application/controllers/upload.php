@@ -11,8 +11,7 @@ class Upload extends CI_Controller {
 		$config['file_name'] 		= 135;
 		$config['max_size']			= 2048;
 		$config['upload_path']		= './uploads/';
-		// $config['allowed_types']	= 'gif|jpg|jpeg|png|bmp';
-		$config['allowed_types']	= 'jpg';
+		$config['allowed_types']	= 'gif|jpg|jpeg|png|bmp';
 		$this->load->library('upload', $config);
 
 		if (!$this->upload->do_upload('image')) {
