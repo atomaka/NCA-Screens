@@ -15,6 +15,17 @@ class Fileupload extends CI_Model {
 
 		return $this->db->insert_id();
 	}
+
+	function count_uploads() {
+		return $this->db->count_all('uploads');
+	}
+
+	function get_upload($id) {
+		$this->db->select('extension, views, created')->from('uploads')->where('id',$id);
+		$query = $this->db->get();
+
+		return $query->result();
+	}
 }
 
 ?>
