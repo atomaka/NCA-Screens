@@ -8,22 +8,24 @@ if($id == '' ) {
 	$content = 'id not set';
 } else {
 	if(!is_numeric($id) || $id <= 0) {
-		$content = 'This image does not exist: bad id format (' . $id . ')';
+		$message = 'This image does not exist: bad id format (' . $id . ')';
 	} else {
 		$db = mysqli_init();
 		$db->real_connect($conf->hostname, $conf->username, $conf->password, $conf->database);
 
-		$query = "SELECT extension, created FROM screens WHERE id = $id";
+		$query = "SELECT extension, created, original FROM screens WHERE id = $id";
 		$result = $db->query($query);
 
 		if($result->num_rows == 0) {
-			$content = 'This image does not exist: not in database';
+			$message = 'This image does not exist: not in database';
 		} else {
 			// load tags
 
 			$image = $result->fetch_object();
-			$content = '<img src="uploads/' . $id . '.' . $image->extension . '" />';
-			$content .= '<br/>Created on: ' . $image->created;
+			$imageOutput = '<img src="uploads/' . $id . '.' . $image->extension . '" class="image" />';
+			$message = 'Uploaded on: ' . $image->created;
+			$message .= '<br/>Original name: ' . $image->original;
+			$message .= '<br/>View Raw: <a href="uploads/' . $id . '.' . $image->extension . '">'. $id . '.' . $image->extension . '</a>';
 		}
 	}
 }
@@ -45,9 +47,15 @@ if($id == '' ) {
 		<header>
 			<h1>title or navigation or something</h1>
 		</header>
+<?if (isset($imageOutput)) { ?>
+		<div id="imageContainer">
+<?php echo $imageOutput; ?>
+		</div>
+<?php } ?>
+		<div id="message">
+<?php echo $message; ?>
+		</div>
 
-		<div style="margin-top: 200px;">
-<?php echo $content; ?>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
