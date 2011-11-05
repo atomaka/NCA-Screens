@@ -8,7 +8,7 @@ $(function(){
 		
 		maxfiles: 5,
     	maxfilesize: 2,
-		url: 'upload.php',
+		url: '/upload/process/',
 		
 		uploadFinished:function(i,file,response){
 			if(response.type == 'error') {
