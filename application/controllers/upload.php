@@ -18,8 +18,7 @@ class Upload extends CI_Controller {
 		if (!$this->upload->do_upload('image')) {
 			$message = array('type' => 'error', 'status' => $this->upload->display_errors());
 		} else {
-			$data = array('upload_data' => $this->upload->data());
-			$message = array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . $data['file_name']);
+			$message = array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . $config['file_name']);
 		}
 
 		echo json_encode($message);
