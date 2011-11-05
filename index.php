@@ -1,36 +1,4 @@
-<?php
-$conf = json_decode(file_get_contents('database.conf'));
-
-$id = isset($_GET['image']) ? $_GET['image'] : '';
-
-if($id == '' ) {
-	// redirect to gallery; do with .htaccess?
-	$content = 'id not set';
-} else {
-	if(!is_numeric($id) || $id <= 0) {
-		$message = 'This image does not exist: bad id format (' . $id . ')';
-	} else {
-		$db = mysqli_init();
-		$db->real_connect($conf->hostname, $conf->username, $conf->password, $conf->database);
-
-		$query = "SELECT extension, created, original FROM screens WHERE id = $id";
-		$result = $db->query($query);
-
-		if($result->num_rows == 0) {
-			$message = 'This image does not exist: not in database';
-		} else {
-			// load tags
-
-			$image = $result->fetch_object();
-			$imageOutput = '<img src="uploads/' . $id . '.' . $image->extension . '" class="image" />';
-			$message = 'Uploaded on: ' . $image->created;
-			$message .= '<br/>Original name: ' . $image->original;
-			$message .= '<br/>View Raw: <a href="uploads/' . $id . '.' . $image->extension . '">'. $id . '.' . $image->extension . '</a>';
-		}
-	}
-}
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <head>
 	<head>
 		<title>No Chicks Allowed: Image Repository</title>
@@ -47,17 +15,13 @@ if($id == '' ) {
 		<header>
 			<h1>title or navigation or something</h1>
 		</header>
-<?if (isset($imageOutput)) { ?>
-		<div id="imageContainer">
-<?php echo $imageOutput; ?>
-		</div>
-<?php } ?>
-		<div id="message">
-<?php echo $message; ?>
-		</div>
-
+		
+		<div id="dropbox">
+			<span class="message">Drop images here to upload.</span>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+		<script src="js/jquery.filedrop.js"></script>
+		<script src="js/upload.js"></script>
    </body>
 </html>

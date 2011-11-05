@@ -38,7 +38,7 @@ if(array_key_exists('image', $_FILES)) {
 	$newId = $db->insert_id;
 
 	if(move_uploaded_file($file['tmp_name'], UPLOADS . $newId . '.' . $extension)) {
-		echo json_encode(array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . UPLOADS . $newId . '.' . $extension));
+		echo json_encode(array('type'=>'success','status'=>'Uploaded successfully','file'=>'http://screens.p5dev.com/' . $newId));
 		exit;
 	}
 }
