@@ -34,13 +34,13 @@ class Upload extends CI_Controller {
 				'create_thumb'			=> true,
 				'maintain_ratio'		=> true,
 				'width'					=> 175,
-				'height'				=> 50,
+				'height'				=> 175,
 				'new_image'				=> './thumbs/' . $file_name . $upload['file_ext'],
 				'thumb_marker'			=> '',
 			);
 
 			$this->load->library('image_lib',$config);
-			
+
 			if($this->image_lib->resize() != true) echo 'dead to me.';
 
 			echo $this->image_lib->display_errors();

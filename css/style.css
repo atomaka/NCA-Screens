@@ -262,6 +262,7 @@ h1{
 --------------------------*/
 
 
+
 #left {
 	position: absolute;
 	left: 0;
@@ -284,4 +285,21 @@ h1{
 	display: block;
 	height: 50px;
 	width: 50px;
+}
+
+
+
+/*-------------------------
+	Gallery
+--------------------------*/
+
+
+
+#galleryContainer {
+	width: 175px;
+	height: 175px;
+	float: left;
+	margin: 5px;
+	position: relative;
+	text-align: center;
 }
