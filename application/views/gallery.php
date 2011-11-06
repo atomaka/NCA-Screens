@@ -5,7 +5,7 @@
 		<div id="imageContainer" style="width: 960px;margin: auto;">
 <?php foreach($uploads as $upload) { ?>
 			<div id="galleryContainer">
-				<img src="<?php echo base_url('/thumbs/' . $upload->id . $upload->extension); ?>" />
+				<a href="<?php echo base_url('/view/specific/' . $upload->id); ?>"><img src="<?php echo base_url('/thumbs/' . $upload->id . $upload->extension); ?>" /></a>
 			</div>
 <?php } ?>
 		</div>
