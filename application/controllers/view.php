@@ -43,4 +43,13 @@ class View extends CI_Controller {
 
 		$this->template->load('template', 'view', $this->data);
 	}
+
+	public function random() {
+		$this->load->model('fileupload');
+		$total_uploads = $this->fileupload->count_uploads();
+
+		$id = rand(1,$total_uploads);
+
+		redirect('/view/specific/' . $id);
+	}
 }
