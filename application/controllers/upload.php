@@ -45,7 +45,7 @@ class Upload extends CI_Controller {
 
 			echo $this->image_lib->display_errors();
 
-			$message = array('type'=>'success','status'=>'Uploaded successfully', 'file'=>base_url('/view/specific/' . $file_name));
+			$message = array('type'=>'success','status'=>'Uploaded successfully', 'file'=>base_url($file_name));
 		}
 
 		echo json_encode($message);
