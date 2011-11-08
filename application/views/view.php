@@ -30,7 +30,6 @@
 		</div>
 
 		<div id="message">
-			Uploaded on: <?php echo $created; ?><br/>
-			Original name: <?php echo $original; ?><br/>
-			Views: <?php echo $views; ?><br/>
+			<span class="label">Uploaded on:<br/>Original name:<br/>Views:<br/>Dimensions:<br/>Size:</span>
+			<span class="info"><?php echo $created; ?><br/><?php echo $original; ?><br/><?php echo $views; ?>x<?php echo $width; ?><br/><?php echo $height; ?><br/><?php echo $size; ?>kb</span>
 		</div>

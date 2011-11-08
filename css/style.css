@@ -262,6 +262,16 @@ h1{
 	font-weight: bold;
 }
 
+.label {
+	display: inline-block;
+	font-weight: bold;
+	text-align: right;
+}
+
+.info {
+	display: inline-block;
+}
+
 
 
 /*-------------------------

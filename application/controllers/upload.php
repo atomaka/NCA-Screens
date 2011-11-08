@@ -23,7 +23,11 @@ class Upload extends CI_Controller {
 			$message = array('type' => 'error', 'status' => $this->upload->display_errors());
 		} else {
 			$upload = $this->upload->data();
+
 			$hash = md5_file($upload['full_path']);
+			$width = $upload['image_width'];
+			$height = $upload['image_height'];
+			$size = $upload['file_size'];
 
 			$this->load->model('fileupload');
 			$duplicate = $this->fileupload->check_duplicate($hash);
@@ -33,7 +37,7 @@ class Upload extends CI_Controller {
 
 				$message = array('type'=>'error', 'status'=>'file already exists:' . $duplicate);
 			} else {
-				$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['client_name'],$hash);
+				$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['client_name'],$width,$height,$size,$hash);
 
 				rename($upload['full_path'], $upload['file_path'] . $file_name . $upload['file_ext']);
 

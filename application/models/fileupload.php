@@ -5,10 +5,13 @@ class Fileupload extends CI_Model {
 		parent::__construct();
 	}
 
-	function add_upload($extension, $original_name, $hash) {
+	function add_upload($extension, $original_name, $width, $height, $size, $hash) {
 		$data = array(
 			'extension'			=> $extension,
 			'original_name'		=> $original_name,
+			'width'				=> $width,
+			'height'			=> $height,
+			'size'				=> $size,
 			'hash'				=> $hash,
 		);
 
@@ -22,7 +25,7 @@ class Fileupload extends CI_Model {
 	}
 
 	function get_upload($id) {
-		$this->db->select('extension, original_name, views, created')->from('uploads')->where('id',$id);
+		$this->db->select('extension, original_name, width, height, size, views, created')->from('uploads')->where('id',$id);
 		$query = $this->db->get();
 
 		$result = $query->result();
