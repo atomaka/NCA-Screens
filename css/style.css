@@ -314,3 +314,42 @@ h1{
 .pagination {
 	text-align: center;
 }
+
+
+
+/*-------------------------
+	Header Content
+--------------------------*/
+
+
+
+#title {
+	text-align: left;
+	width: 48%;
+	left: 0;
+	position: absolute;
+	margin-left: 10px;
+}
+
+#title h1 {
+	text-align: left;
+	padding: 3px;
+}
+
+#title h1 a {
+	color: #fff;
+}
+
+#links {
+	width: 48%;
+	right: 0;
+	text-align: right;
+	position: absolute;
+	padding: 3px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+#links a {
+	color: #fff;
+}

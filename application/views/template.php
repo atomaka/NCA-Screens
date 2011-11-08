@@ -13,7 +13,13 @@
 
     <body>
 		<header>
-			<h1>title or navigation or something</h1>
+			<div id="title"><h1><a href="http://www.nca-guild.com">No Chicks Allowed</a></h1></div>
+			<div id="links">
+				<a href="/upload">Upload</a> |
+				<a href="/gallery">Gallery</a> |
+				<a href="/latest">Latest</a> |
+				<a href="/random">Random</a>
+			</div>
 		</header>
 
 <?php echo $contents; ?>
