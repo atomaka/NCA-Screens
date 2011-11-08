@@ -29,10 +29,12 @@ class Upload extends CI_Controller {
 			$duplicate = $this->fileupload->check_duplicate($hash);
 			
 			if($duplicate) {
+				unlink($upload['full_path']);
+
 				$message = array('type'=>'error', 'status'=>'file already exists:' . $duplicate);
 			} else {
 				$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['client_name'],$hash);
-				
+
 				rename($upload['full_path'], $upload['file_path'] . $file_name . $upload['file_ext']);
 
 				$config = array(
