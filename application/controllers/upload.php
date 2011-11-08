@@ -23,25 +23,34 @@ class Upload extends CI_Controller {
 			$message = array('type' => 'error', 'status' => $this->upload->display_errors());
 		} else {
 			$upload = $this->upload->data();
+			$hash = md5_file($upload['full_path']);
 
 			$this->load->model('fileupload');
-			$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['client_name']);
-			rename($upload['full_path'], $upload['file_path'] . $file_name . $upload['file_ext']);
+			$duplicate = $this->fileupload->check_duplicate($hash);
+			
+			if($duplicate) {
+				$message = array('type'=>'error', 'status'=>'file already exists:' . $duplicate);
+			} else {
+				$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['client_name'],$hash);
+				
+				rename($upload['full_path'], $upload['file_path'] . $file_name . $upload['file_ext']);
 
-			$config = array(
-				'image_library'			=> 'gd2',
-				'source_image'			=> $upload['file_path'] . $file_name . $upload['file_ext'],
-				'create_thumb'			=> true,
-				'maintain_ratio'		=> true,
-				'width'					=> 175,
-				'height'				=> 175,
-				'new_image'				=> './thumbs/' . $file_name . $upload['file_ext'],
-				'thumb_marker'			=> '',
-			);
+				$config = array(
+					'image_library'			=> 'gd2',
+					'source_image'			=> $upload['file_path'] . $file_name . $upload['file_ext'],
+					'create_thumb'			=> true,
+					'maintain_ratio'		=> true,
+					'width'					=> 175,
+					'height'				=> 175,
+					'new_image'				=> './thumbs/' . $file_name . $upload['file_ext'],
+					'thumb_marker'			=> '',
+				);
 
-			$this->load->library('image_lib',$config);
-			$this->image_lib->resize();
-			$message = array('type'=>'success','status'=>'Uploaded successfully', 'file'=>base_url($file_name));
+				$this->load->library('image_lib',$config);
+				$this->image_lib->resize();
+			
+				$message = array('type'=>'success','status'=>'Uploaded successfully', 'file'=>base_url($file_name));
+			}
 		}
 
 		echo json_encode($message);

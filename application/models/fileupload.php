@@ -5,10 +5,11 @@ class Fileupload extends CI_Model {
 		parent::__construct();
 	}
 
-	function add_upload($extension, $original_name) {
+	function add_upload($extension, $original_name, $hash) {
 		$data = array(
 			'extension'			=> $extension,
 			'original_name'		=> $original_name,
+			'hash'				=> $hash,
 		);
 
 		$this->db->insert('uploads', $data);
@@ -42,6 +43,19 @@ class Fileupload extends CI_Model {
 		
 
 		return $query->result();
+	}
+
+	function check_duplicate($hash) {
+		$this->db->select('id')->from('uploads')->where('hash',$hash);
+		$query = $this->db->get();
+
+		if($query->num_rows == 0) {
+			return false;
+		} else {
+			$result = $query->result();
+
+			return $result[0]->id;
+		}
 	}
 }
 
