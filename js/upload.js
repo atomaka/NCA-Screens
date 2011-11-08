@@ -20,6 +20,10 @@ $(function(){
 			} else {
 				$.data(file).addClass('done');
 				$.data(file).find('.linkBox').val(response.file);	
+				$.data(file).find('.linkBox').click(function() { 
+					this.focus();
+					this.select();
+				});
 			}
 			// response is the JSON object that post_file.php returns
 		},
