@@ -1,16 +1,16 @@
 <?php if($prev != 0) { ?>
 		<div id="left">
-			<a href="<?php echo base_url('/view/specific/' . $prev); ?>" class="navigation"></a>
+			<a href="<?php echo base_url($prev); ?>" class="navigation"></a>
 		</div>
 <?php } ?>
 <?php if($next != 0) { ?>
 		<div id="right">
-			<a href="<?php echo base_url('/view/specific/' . $next); ?>" class="navigation"></a>
+			<a href="<?php echo base_url($next); ?>" class="navigation"></a>
 		</div>
 <?php } ?>
 
 		<div id="imageContainer">
-			<a href="<?php base_url('/uploads/' . $image); ?>"><img src="<?php echo base_url('/uploads/' . $image); ?>" class="image" /></a>
+			<a href="<?php echo base_url('/uploads/' . $image); ?>"><img src="<?php echo base_url('/uploads/' . $image); ?>" class="image" /></a>
 		</div>
 
 		<div id="message">
