@@ -54,13 +54,13 @@ class View extends CI_Controller {
 
 		$id = rand(1,$total_uploads);
 
-		redirect('/view/specific/' . $id);
+		redirect($id);
 	}
 
 	public function latest() {
 		$this->load->model('fileupload');
 		$total_uploads = $this->fileupload->count_uploads();
 
-		redirect('/view/specific/' . $total_uploads);
+		redirect($total_uploads);
 	}
 }
