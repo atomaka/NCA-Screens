@@ -18,8 +18,12 @@ class View extends CI_Controller {
 		$id = $this->uri->segment($this->uri->total_segments());
 		$total_uploads = $this->fileupload->count_uploads();
 
-		if($id == false || !is_numeric($id) || $id < 0 || $id > $total_uploads) {
-			exit('bad id');
+		if($id == 'latest') {
+			$id = $total_uploads;
+		} elseif($id == 'random') {
+			$id = rand(1,$total_uploads);
+		} elseif($id == false || !is_numeric($id) || $id < 0 || $id > $total_uploads) {
+			exit('bad id' . $id);
 		}
 
 		$upload = $this->fileupload->get_upload($id);

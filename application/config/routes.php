@@ -42,6 +42,8 @@ $route['default_controller'] = "upload";
 $route['404_override'] = '';
 
 $route['[0-9]+'] = 'view/specific/$1';
+$route['random'] = 'view/specific';
+$route['latest'] = 'view/specific';
 
 
 /* End of file routes.php */
