@@ -31,5 +31,5 @@
 
 		<div id="message">
 			<span class="label">Uploaded on:<br/>Original name:<br/>Views:<br/>Dimensions:<br/>Size:</span>
-			<span class="info"><?php echo $created; ?><br/><?php echo $original; ?><br/><?php echo $views; ?>x<?php echo $width; ?><br/><?php echo $height; ?><br/><?php echo $size; ?>kb</span>
+			<span class="info"><?php echo $created; ?><br/><?php echo $original; ?><br/><?php echo $views; ?><br/><?php echo $width; ?>x<?php echo $height; ?><br/><?php echo $size; ?>kb</span>
 		</div>

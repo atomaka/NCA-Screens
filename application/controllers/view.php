@@ -45,7 +45,7 @@ class View extends CI_Controller {
 		$this->data['views']		= $display_views;
 		$this->data['created']		= $upload->created;
 		$this->data['height']		= $upload->height;
-		$this->data['width']		= $upload->height;
+		$this->data['width']		= $upload->width;
 		$this->data['size']			= $upload->size;
 
 
