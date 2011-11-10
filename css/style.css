@@ -370,3 +370,37 @@ h1{
 .underline {
 	text-decoration: underline;
 }
+
+
+
+/*-------------------------
+	Import
+--------------------------*/
+
+
+
+#uploadTable {
+	border-collapse: collapse;
+	border: 2px solid black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#uploadTable th {
+	font-weight: bold;
+	border: 2px solid black;
+	padding: 5px;
+}
+
+#uploadTable td {
+	border: 2px solid black;
+	padding: 1px;
+}
+
+.error {
+	color: red;
+}
+
+.success {
+	color: green;
+}
