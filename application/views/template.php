@@ -5,6 +5,7 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" media="all" href="/css/html5reset-1.6.1.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css" type="text/css" />
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 
@@ -44,8 +45,15 @@
 						break;
 				}
 			});
+			$(function () {  
+			    $.altAlert({
+			    	resizable: false,
+			    });  
+			});  
 		</script>
-		<script src="js/jquery.filedrop.js"></script>
-		<script src="js/upload.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+		<script src="/js/jquery.altAlert.js"></script>
+		<script src="/js/jquery.filedrop.js"></script>
+		<script src="/js/upload.js"></script>
    </body>
 </html>
