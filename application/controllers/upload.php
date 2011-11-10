@@ -35,7 +35,7 @@ class Upload extends CI_Controller {
 			if($duplicate) {
 				unlink($upload['full_path']);
 
-				$message = array('type'=>'error', 'status'=>'file already exists:' . $duplicate);
+				$message = array('type'=>'error', 'status'=>'You are attempting to upload a duplicate of <a href="' . base_url($duplicate) . '" style="text-decoration:underline">image ' . $duplicate . '</a>.');
 			} else {
 				$file_name = $this->fileupload->add_upload($upload['file_ext'], $upload['client_name'],$width,$height,$size,$hash);
 
