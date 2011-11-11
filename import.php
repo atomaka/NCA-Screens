@@ -1,5 +1,11 @@
 <?php 
 
+$config 						= json_decode(file_get_contents('nca.conf'));
+$db 							= mysqli_init();
+
+$db->real_connect($conf->hostname,$conf->username,$conf->password,
+		$conf->database);
+
 $upload_dir						= '/home/ncaguild/nca-guild.com/screens/uploads/';
 $uploads 						= scandir($upload_dir);
 
@@ -44,6 +50,11 @@ foreach($uploads as $upload) {
 		$failed++;
 		continue;
 	}
+
+	$query = $db->prepare("INSERT INTO uploads (id,extension,original_name,width,height,size,hash) VALUES(?,?,?.?.?.?)");
+	$query->bind_param('isssiids',$id, $extension, 'unknown', $width, $height, $size, $hash);
+	$query->execute();
+	$query->close();
 
 	$current['height']			= $height;
 	$current['width']			= $width;
