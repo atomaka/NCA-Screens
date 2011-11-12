@@ -34,7 +34,7 @@ class Fileupload extends CI_Model {
 	}
 
 	function add_view($id) {
-		$this->db->query("UPDATE uploads SET views = views + 1 WHERE id = $id");
+		$this->db->where('id',$id)->set('views','views + 1',false)->update('uploads');
 	}
 
 	function get_uploads($start = false, $count = false) {

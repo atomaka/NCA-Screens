@@ -26,8 +26,8 @@ class Viewer extends CI_Model {
 
 	function clean_viewers($duration) {
 		$clean_time = time() - $duration;
-		
-		$this->db->query("DELETE FROM viewers WHERE timestamp < $clean_time");	
+
+		$this->db->where('timestamp <', $clean_time)->delete('viewers');
 	}
 }
 
