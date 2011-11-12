@@ -24,7 +24,11 @@
 			<a href="<?php echo base_url($next); ?>" class="navigation"></a>
 		</div>
 <?php } ?>
-
+<?php if($original == 'lost') { ?>
+		<div id="message">
+			Image has been lost.
+		</div>
+<?php } else { ?>
 		<div id="imageContainer">
 			<a href="<?php echo base_url('/uploads/' . $image); ?>"><img src="<?php echo base_url('/uploads/' . $image); ?>" class="image" /></a>
 		</div>
@@ -33,3 +37,4 @@
 			<span class="label">Uploaded on:<br/>Original name:<br/>Views:<br/>Dimensions:<br/>Size:</span>
 			<span class="info"><?php echo $created; ?><br/><?php echo $original; ?><br/><?php echo $views; ?><br/><?php echo $width; ?>x<?php echo $height; ?><br/><?php echo $size; ?>kb</span>
 		</div>
+<?php } ?>
