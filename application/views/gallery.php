@@ -5,7 +5,7 @@
 		<div id="imageContainer" style="width: 960px;margin: auto;">
 <?php 
 foreach($uploads as $upload) { 
-	$extension = (preg_match('/guild/',$_SERVER['HTTP_HOST']) != 0 && $upload->id <= 927)
+	$extension = (preg_match('/guild/',$_SERVER['HTTP_HOST']) != 0 && $upload->id <= 926)
 		? '.jpg' : $upload->extension;
 ?>
 			<div id="galleryContainer">
