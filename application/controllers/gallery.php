@@ -10,7 +10,8 @@ class Gallery extends CI_Controller {
 		$config = array(
 			'base_url'		=> base_url('/gallery/index/'),
 			'total_rows'	=> $this->fileupload->count_uploads(),
-			'per_page'		=> $page_count
+			'per_page'		=> $page_count,
+			'num_links'		=> 5,
 		);
 
 		$this->pagination->initialize($config);
