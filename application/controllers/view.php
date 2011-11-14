@@ -12,10 +12,9 @@ class View extends CI_Controller {
 		
 	}
 
-	public function specific() {
+	public function specific($id = 'latest') {
 		$this->load->model('fileupload');
 
-		$id = $this->uri->segment($this->uri->total_segments());
 		$total_uploads = $this->fileupload->count_uploads();
 
 		if($id == 'latest') {

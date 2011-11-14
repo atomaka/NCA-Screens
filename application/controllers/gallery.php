@@ -1,16 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Gallery extends CI_Controller {
-	public function index() {
+	public function index($start = 1) {
 		$this->load->model('fileupload');
 		$this->load->library('pagination');
 
-		$page_count	= 20;
-		$start = $this->uri->segment($this->uri->total_segments(), 1);
-
-		if($start == 'index') $start = 1;
-
-		
+		$page_count	= 20;		
 		
 		$config = array(
 			'base_url'		=> base_url('/gallery/index/'),
