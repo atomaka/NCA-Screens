@@ -43,7 +43,7 @@ $route['404_override'] = '';
 
 $route['random'] = 'view/random';
 $route['latest'] = 'view/latest';
-$route['[0-9]+'] = 'view/specific/$1';
+$route['([0-9]+)'] = 'view/specific/$1';
 
 
 
