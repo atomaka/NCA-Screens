@@ -6,7 +6,7 @@ class Upload extends CI_Controller {
 	}
 
 	public function process() {
-		header('Content-Type: application/json',true);
+		header('Content-Type: text/html',true); //application/json
 
 		$temp_name = md5(rand());
 
