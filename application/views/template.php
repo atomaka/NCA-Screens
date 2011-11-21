@@ -55,41 +55,9 @@
 		<script src="/js/jquery.altAlert.js"></script>
 		<script src="/js/jquery.filedrop.js"></script>
 		<script src="/js/upload.js"></script>
-		<script src="/js/jquery.upload-1.0.2.js"></script>
 
 		<script type="text/javascript">
-			$(function() {
-		        $('#single_upload').change(function() {
-		            $(this).upload('/upload/process/', function(response) {
 
-if(response.type == 'error') {
-	alert('There was an error: ' + response.status);
-
-	return false;
-} else {
-	// $.data(file).addClass('done');
-	// $.data(file).find('.linkBox').val(response.file);	
-	// $.data(file).find('.linkBox').click(function() { 
-	// 	this.focus();
-	// 	this.select();
-	// });
-	$('#dropbox').append($('<div>')
-		.append($('<input>')
-			.attr('type', 'text')
-			.val(response.file)
-			.addClass('linkBox')
-		)
-	);
-	$('#dropbox').find('.linkBox:last').click(function() {
-		this.focus();
-		this.select();
-	});
-	alert('success');
-}
-
-		            }, 'json');
-		        });
-		    });
 		</script>
    </body>
 </html>
