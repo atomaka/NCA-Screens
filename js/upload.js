@@ -1,6 +1,7 @@
 $(function(){
 	var dropbox = $('#dropbox'),
-		message = $('.message', dropbox);
+		message = $('.message', dropbox),
+		button  = $('#file-input');
 	
 	dropbox.filedrop({
 		// The name of the $_FILES entry:
@@ -114,4 +115,18 @@ $(function(){
 		message.html(msg);
 	}
 
+	// Button upload support
+	button.change(function(){
+		var fileList = this.files;
+
+		if (fileList.length > 0) {
+			// Send this as if it were dropped
+			var e = $.Event("drop", {
+				dataTransfer: {
+					files: fileList,
+				},
+			});
+			dropbox.trigger(e);
+		}
+	});
 });

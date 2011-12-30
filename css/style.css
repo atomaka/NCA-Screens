@@ -117,6 +117,33 @@ h1{
 	border-radius: 3px 3px 0 0;
 }
 
+#dropbox .button {
+    background-color: #333;
+    border-radius: 3px;
+    color: #ddd;
+    font-size: 13px;
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 8px;
+    margin: 1em auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+#dropbox #file-input {
+    font-size: 460px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+    z-index: 10000;
+}
+
 
 
 /*-------------------------
