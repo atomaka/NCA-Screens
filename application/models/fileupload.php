@@ -38,7 +38,7 @@ class Fileupload extends CI_Model {
 	}
 
 	function get_uploads($start = false, $count = false) {
-		if($start != false && $count != false) {
+		if($start !== false && $count !== false) {
 			$query = $this->db->get('uploads', $count, $start);
 		} else {
 			$query = $this->db->get('uploads');

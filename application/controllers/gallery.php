@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Gallery extends CI_Controller {
-	public function index($start = 1) {
+	public function index($start = 0) {
 		$this->load->model('fileupload');
 		$this->load->library('pagination');
 
