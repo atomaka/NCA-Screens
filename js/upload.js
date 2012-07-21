@@ -16,12 +16,14 @@ $(function(){
 				alert('There was an error: ' + response.status);
 				$.data(file).addClass('error');
 				$.data(file).find('.linkBox').remove();
+				$.data(file).find('.directLinkBox').remove();
 
 				return false;
 			} else {
 				$.data(file).addClass('done');
 				$.data(file).find('.linkBox').val(response.file);	
-				$.data(file).find('.linkBox').click(function() { 
+				$.data(file).find('.directLinkBox').val(response.direct);
+				$.data(file).find('input').click(function() {
 					this.focus();
 					this.select();
 				});
@@ -76,6 +78,9 @@ $(function(){
 						'</div>' +
 						'<div class="linkHolder">' +
 							'<input type="text" class="linkBox" />' +
+						'</div>' +
+						'<div class="direct linkHolder">' +
+							'<input type="text" class="directLinkBox" />' +
 						'</div>' +
 					'</div>'; 
 	
