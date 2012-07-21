@@ -129,4 +129,26 @@ $(function(){
 			dropbox.trigger(e);
 		}
 	});
+
+    // Clipboard paste support
+    $(document).bind("paste", function(e) {
+        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.items) {
+            var items = e.originalEvent.clipboardData.items;
+            for (var i = 0; i < items.length; i++) {
+                var file = items[i];
+                if (file.type == "image/png") {
+                    // Send this as if it were dropped
+                    file = file.getAsFile();
+                    file.name = "paste_" + Math.random().toString(16).slice(2) + ".png";
+                    var e = $.Event("drop", {
+                        dataTransfer: {
+                            files: [file],
+                        },
+                    });
+                    dropbox.trigger(e);
+                    return;
+                }
+            }
+        }
+    });
 });
