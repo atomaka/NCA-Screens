@@ -61,7 +61,7 @@ $(function(){
 		},
 		
 		progressUpdated: function(i, file, progress) {
-			$.data(file).find('.progress').width(progress);
+			$.data(file).find('.progress').width(progress + "%");
 		}
     	 
 	});
