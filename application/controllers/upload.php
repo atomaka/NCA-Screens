@@ -56,7 +56,12 @@ class Upload extends CI_Controller {
 				$this->image_lib->initialize($config);
 				$this->image_lib->resize();
 			
-				$message = array('type'=>'success','status'=>'Uploaded successfully', 'file'=>base_url($file_name));
+				$message = array(
+					'type'   => 'success',
+					'status' => 'Uploaded successfully',
+					'file'   => base_url($file_name),
+					'direct' => base_url('uploads/' . $file_name . $upload['file_ext']),
+				);
 			}
 		}
 
